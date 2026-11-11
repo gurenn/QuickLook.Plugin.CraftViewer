@@ -24,6 +24,15 @@ A QuickLook plugin for previewing **VectorCraft** `.vectorcraft` (vector drawing
 
 Download the `.qlplugin`, select it in Explorer, press <kbd>Space</kbd> with QuickLook running, click **Install**, then restart QuickLook.
 
+## 保存时的预览嵌入选项 / Embedded preview depends on save options
+
+内嵌预览由**保存时的选项**决定，插件只读取文件里已有的预览图：
+
+- **VectorCraft**：`File → Save As` 保存后在 "VectorCraft Options" 对话框中**必须勾选 "Preview"**，文件才会内嵌第一张画板的 256px PNG 预览。未勾选保存的文件不含任何预览图（不影响在 VectorCraft 中正常打开编辑）。
+- **PhotoCraft**：项目包默认携带高分辨率合成图（`composite/full.png`），无需额外勾选。
+
+**若文件没有内嵌预览或想要更高清晰度**，请按下一节配置 CLI 高保真渲染——无内嵌预览的文件也能直接实时渲染，无需用 VectorCraft 重新保存。
+
 ## 可选：CLI 高保真渲染 / Optional: high-fidelity rendering
 
 构建上游 CLI 并把路径写入插件目录的 `cli-config.json`：
