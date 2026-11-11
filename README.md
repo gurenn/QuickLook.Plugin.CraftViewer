@@ -4,6 +4,12 @@
 
 A QuickLook plugin for previewing **VectorCraft** `.vectorcraft` (vector drawing) and **PhotoCraft** `.pcraft` (image project) files.
 
+## 背景 / Background
+
+[ArtCraft](https://github.com/storytold) 是 storytelling 创作软件系列（VectorCraft 矢量绘图、PhotoCraft 图像编辑等），均采用各自的项目文件格式且上游未公开独立的格式文档。本插件面向 QuickLook 用户，填补这两个格式在 Windows 文件管理器中"空格即览"的空缺。
+
+**当前仅支持 VectorCraft（`.vectorcraft`）与 PhotoCraft（`.pcraft`）** 两个格式的预览。如需支持 ArtCraft 系列其他软件的格式（或其他小众格式），欢迎在 [Issues](https://github.com/gurenn/QuickLook.Plugin.CraftViewer/issues) 中提出需求。
+
 ## 功能特性 / Features
 
 - 🖼️ **内嵌预览快路径**（纯 C#，零外部依赖）：读取 `.vectorcraft` 内嵌 PNG 预览（v1–v4 信封、drawcraft 兼容、gzip 与 v4 二进制 blob 尾部）、`.pcraft` 白名单预览（`composite/full.png` → `composite/preview.png` → `thumb.png`）
