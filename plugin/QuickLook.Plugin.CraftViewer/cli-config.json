@@ -1,0 +1,6 @@
+{
+  "_readme": "QuickLook.Plugin.CraftViewer 高保真渲染 CLI 配置。两个路径留空 = CLI 未配置，插件优雅降级为仅元数据面板。示例：C:\\Tools\\vectorcraft-cli.exe",
+  "vectorcraftCliPath": "",
+  "photocraftCliPath": "",
+  "timeoutSeconds": 30
+}

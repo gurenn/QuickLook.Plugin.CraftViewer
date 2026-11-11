@@ -1,0 +1,112 @@
+<UserControl x:Class="QuickLook.Plugin.CraftViewer.CraftPreviewPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="720" d:DesignWidth="960">
+
+    <Grid>
+        <!-- ===================== 图片区（棋盘格透明底） ===================== -->
+        <Grid x:Name="imageArea">
+            <Grid.Background>
+                <DrawingBrush TileMode="Tile" Viewport="0,0,16,16" ViewportUnits="Absolute">
+                    <DrawingBrush.Drawing>
+                        <DrawingGroup>
+                            <GeometryDrawing Brush="#FFC8C8C8">
+                                <GeometryDrawing.Geometry>
+                                    <RectangleGeometry Rect="0,0,16,16" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                            <GeometryDrawing Brush="#FFEEEEEE">
+                                <GeometryDrawing.Geometry>
+                                    <GeometryGroup>
+                                        <RectangleGeometry Rect="0,0,8,8" />
+                                        <RectangleGeometry Rect="8,8,8,8" />
+                                    </GeometryGroup>
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                        </DrawingGroup>
+                    </DrawingBrush.Drawing>
+                </DrawingBrush>
+            </Grid.Background>
+            <Image x:Name="previewImage"
+                   Stretch="Uniform"
+                   Margin="12"
+                   RenderOptions.BitmapScalingMode="HighQuality" />
+        </Grid>
+
+        <!-- ===================== 来源角标（P1-2 三态） ===================== -->
+        <Border x:Name="badgeBorder"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Margin="10"
+                Background="#CC202020"
+                CornerRadius="4"
+                Padding="8,4"
+                Visibility="Collapsed">
+            <TextBlock x:Name="badgeText"
+                       Foreground="#FFF0F0F0"
+                       FontSize="12" />
+        </Border>
+
+        <!-- ===================== 错误区（P0-3：类别 + 可读原因） ===================== -->
+        <StackPanel x:Name="errorArea"
+                    Visibility="Collapsed"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    MaxWidth="560"
+                    Margin="24">
+            <TextBlock Text="&#xE783;"
+                       FontFamily="Segoe MDL2 Assets"
+                       FontSize="40"
+                       Foreground="#FFD83B3B"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,12" />
+            <TextBlock x:Name="errorCategoryText"
+                       FontSize="16"
+                       FontWeight="SemiBold"
+                       Foreground="#FFD83B3B"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,8"
+                       TextWrapping="Wrap" />
+            <TextBlock x:Name="errorDetailText"
+                       FontSize="13"
+                       Foreground="#FF666666"
+                       TextWrapping="Wrap"
+                       TextAlignment="Center" />
+        </StackPanel>
+
+        <!-- ===================== 元数据区（MetadataOnly 降级面板） ===================== -->
+        <ScrollViewer x:Name="metadataArea"
+                      Visibility="Collapsed"
+                      VerticalScrollBarVisibility="Auto"
+                      Background="#FFF7F7F7">
+            <StackPanel Margin="28,24">
+                <TextBlock Text="&#xE7C1;"
+                           FontFamily="Segoe MDL2 Assets"
+                           FontSize="36"
+                           Foreground="#FF7A7A7A"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,12" />
+                <TextBlock x:Name="metadataTitleText"
+                           FontSize="15"
+                           FontWeight="SemiBold"
+                           Foreground="#FF333333"
+                           Margin="0,0,0,10"
+                           TextWrapping="Wrap" />
+                <TextBlock x:Name="metadataText"
+                           FontSize="13"
+                           Foreground="#FF555555"
+                           LineHeight="22"
+                           TextWrapping="Wrap" />
+                <TextBlock x:Name="metadataWarningText"
+                           FontSize="12"
+                           Foreground="#FF9A6A00"
+                           Margin="0,14,0,0"
+                           TextWrapping="Wrap"
+                           Visibility="Collapsed" />
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

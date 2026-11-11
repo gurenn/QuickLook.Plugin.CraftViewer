@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- QuickLook.Plugin.CraftViewer：net462 WPF 插件库（设计 §2 / 报告 §5.2 落地） -->
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net462</TargetFramework>
+    <RootNamespace>QuickLook.Plugin.CraftViewer</RootNamespace>
+    <AssemblyName>QuickLook.Plugin.CraftViewer</AssemblyName>
+    <UseWPF>true</UseWPF>
+    <Version>0.1.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- ReferenceAssemblies 包引用统一由根 Directory.Build.props 提供 -->
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- pcraft ZIP 读取所需（net462 需显式引用） -->
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- QuickLook.Common 必须取自与实机宿主 v4.5.0 匹配的上游 commit（scripts/fetch-quicklook-common.ps1） -->
+    <ProjectReference Include="..\..\QuickLook.Common\QuickLook.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="QuickLook.Plugin.Metadata.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="cli-config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

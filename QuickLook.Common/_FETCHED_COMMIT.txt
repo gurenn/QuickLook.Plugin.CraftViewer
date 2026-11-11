@@ -1,0 +1,8 @@
+repo=QL-Win/QuickLook
+source=inline-tree@5b6a155d3c7fc2cc1d35a4917c19e9a6017a7af7
+treeSha=5b6a155d3c7fc2cc1d35a4917c19e9a6017a7af7
+hostRepo=QL-Win/QuickLook
+hostTag=4.5.0(缓存)
+hostCommit=b13df028f3cce1f84792f7043b57bf5cea3a3e4c
+fetchedAt=2026-11-11T13:21:30.9624486+08:00
+buildPatches=removed <Compile Include="..\GitVersion.cs"> ItemGroup（宿主仓库构建期生成文件）; removed PreBuildEvent（依赖宿主 SolutionDir 脚本）

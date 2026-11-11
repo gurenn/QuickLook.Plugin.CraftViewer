@@ -1,0 +1,9 @@
+[Bb]in/
+[Oo]bj/
+dist/
+Build/
+samples/
+*.user
+*.suo
+.vs/
+test-results/

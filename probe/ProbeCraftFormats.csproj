@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- M0 格式探针：net462 控制台，通过 Compile 链接复用插件 Formats 层（纯 BCL，无 WPF） -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net462</TargetFramework>
+    <RootNamespace>ProbeCraftFormats</RootNamespace>
+    <AssemblyName>ProbeCraftFormats</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- ReferenceAssemblies 包引用统一由根 Directory.Build.props 提供 -->
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- 单一事实来源：直接链接插件 Formats 层源码 -->
+    <Compile Include="..\plugin\QuickLook.Plugin.CraftViewer\Formats\**\*.cs" />
+  </ItemGroup>
+
+</Project>
